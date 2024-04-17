@@ -7,7 +7,7 @@ from fastapi import status
 def getImages():
     try:
         images = Image.objects.all()
-        videos = Video.objects.all().order_by('-id')
+        videos = Video.objects.all().order_by('id')
         
         response_obj = {'images': [{'id': image.id, 'image': str(image.image)} for image in images],
                         'videos': [{'id': video.id, 'video': str(video.video), "yt_url": video.youtube_video_link} for video in videos]}
